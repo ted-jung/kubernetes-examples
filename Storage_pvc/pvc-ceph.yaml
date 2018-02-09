@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ceph-claim
+  namespace: kube-system
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "ceph-fast"
+  labels:
+    app: ceph-cluster
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
